@@ -13,17 +13,19 @@
   "bugs": {
     "url": "https://github.com/arjen/html-comments/issues"
   },
-  "main": "Gruntfile.js",
+  "main": "index.coffee",
   "engines": {
     "node": ">= 0.8.0"
   },
   "scripts": {
     "test": "grunt test"
   },
+  "dependencies": {
+    "cheerio": "~0.12.3"
+  },
   "devDependencies": {
     "grunt-contrib-clean": "~0.4.0",
     "grunt-contrib-nodeunit": "~0.2.0",
     "grunt": "~0.4.1",
-    "cheerio": "~0.12.3"
   }
 }
