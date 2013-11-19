@@ -18,7 +18,8 @@
   },
   "main": "index.coffee",
   "dependencies": {
-    "cheerio": "~0.12.3"
+    "cheerio": "~0.12.3",
+    "coffee-script": "*"
   },
   "devDependencies": {
     "grunt-contrib-clean": "~0.4.0",
