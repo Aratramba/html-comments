@@ -1,7 +1,7 @@
 {
   "name": "html-comments",
   "description": "Simple nodejs module that collects all comments from input html. Optionally filter out everything that begins with a given keyword.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Arjen Scherff-de Water",
     "email": "aratramba@gmail.com"
