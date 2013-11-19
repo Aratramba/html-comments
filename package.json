@@ -1,6 +1,6 @@
 {
   "name": "html-comments",
-  "description": "Collect all comments from an html file that start with [keyword]",
+  "description": "Simple nodejs module that collects all comments from input html. Optionally filter out everything that begins with a given keyword.",
   "version": "0.0.1",
   "author": {
     "name": "Arjen Scherff-de Water",
@@ -8,17 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/arjen/html-comments.git"
+    "url": "git://github.com/eightmedia/html-comments.git"
   },
   "bugs": {
-    "url": "https://github.com/arjen/html-comments/issues"
+    "url": "https://github.com/eightmedia/html-comments/issues"
   },
-  "main": "index.coffee",
   "engines": {
     "node": ">= 0.8.0"
-  },
-  "scripts": {
-    "test": "grunt test"
   },
   "dependencies": {
     "cheerio": "~0.12.3"
