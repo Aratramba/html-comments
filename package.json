@@ -1,0 +1,29 @@
+{
+  "name": "html-comments",
+  "description": "Collect all comments from an html file that start with [keyword]",
+  "version": "0.0.1",
+  "author": {
+    "name": "Arjen Scherff-de Water",
+    "email": "aratramba@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/arjen/html-comments.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arjen/html-comments/issues"
+  },
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "~0.4.1",
+    "cheerio": "~0.12.3"
+  }
+}
