@@ -6,7 +6,7 @@ var htmlcomments, file, keyword, comments;
 exports.htmlcomments = {
 
   setUp: function(done) {
-    htmlcomments = require('../index');
+    htmlcomments = require('../main');
     file = 'test/fixtures/index.html';
     keyword = 'yep';
 
