@@ -1,11 +1,16 @@
 # html-comments
-Simple nodejs module that collects all comments from input html. Optionally filter out everything that begins with a given keyword.
+Simple nodejs module that collects all comments from input HTML. Optionally filter out everything that starts with a given keyword.
 
 # Example
 ```js
 var htmlcomments = require('html-comments');
-var comments = htmlcomments.loadFile('file.html');
-var filtered = htmlcomments.filter(comments, 'yep');
+
+var options = {
+  keyword: 'yep', // keyword to filter comments with
+  removeKeyword: true // returns just the comment body without the keyword
+};
+
+var comments = htmlcomments.loadFile('file.html', options);
 ```
 
 ```html
@@ -25,15 +30,10 @@ var filtered = htmlcomments.filter(comments, 'yep');
 ```
 
 # API
-`loadFile(path)`
+`loadFile(path, options)`
 
 Load an html file at the given path. Returns all comments from that html file.
 
-`load(src)`
+`load(src, options)`
 
 Load html source string. Returns all comments.
-
-`filter(comments, keyword = '', removeKeyword = false)`
-
-Filter out every comment that starts with the given keyword. Optionally remove that keyword.
-

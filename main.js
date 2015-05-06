@@ -12,9 +12,11 @@ var fs = require('fs');
  * load file
  */
 
-function loadFile(path) {
+function loadFile(path, options) {
+  options = options || {};
+
   try {
-    return load(fs.readFileSync(path));
+    return load(fs.readFileSync(path), options);
   } catch (_error) {
     var e = _error;
     console.log(e);
@@ -27,41 +29,38 @@ function loadFile(path) {
  * load html source
  */
 
-function load(src) {
+function load(src, options) {
+
+  // set defaults
+  options = options || {};
+  options.keyword = options.keyword || '';
+  options.removeKeyword = options.removeKeyword || false;
+
+  // store comments
   var comments = [];
+
+  // load DOM
   var $ = cheerio.load(src);
+
+  // find all elements, return only comments
   $('*').contents().map(function(n, el) {
     if (el.type === 'comment') {
-      return comments.push(el.data);
-    }
-  });
-  return comments;
-}
+      src = el.data.trim();
 
+      // keyword check
+      if(src.trim().substring(0, options.keyword.length) === options.keyword){
 
-/**
- * filter
- */
+        // remove keyword from comment
+        if(options.removeKeyword){
+          src = src.substring(options.keyword.length);
+        }
 
-function filter(comments, keyword, removeKeyword) {
-  var comment, filtered, _i, _len;
-  if (keyword === null || typeof keyword === 'undefined') {
-    keyword = '';
-  }
-  if (removeKeyword === null) {
-    removeKeyword = false;
-  }
-  filtered = [];
-  for (_i = 0, _len = comments.length; _i < _len; _i++) {
-    comment = comments[_i];
-    if (comment.trim().substring(0, keyword.length) === keyword) {
-      if (removeKeyword) {
-        comment = comment.trim().substring(keyword.length);
+        // push comment
+        return comments.push(src);
       }
-      filtered.push(comment);
     }
-  }
-  return filtered;
+  }.bind(this));
+  return comments;
 }
 
 
@@ -71,6 +70,5 @@ function filter(comments, keyword, removeKeyword) {
 
 module.exports = {
   loadFile: loadFile,
-  load: load,
-  filter: filter
+  load: load
 };
