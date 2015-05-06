@@ -1,7 +1,7 @@
 {
   "name": "html-comments",
   "description": "Simple nodejs module that collects all comments from input html. Optionally filter out everything that begins with a given keyword.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": {
     "name": "Arjen Scherff-de Water",
     "email": "aratramba@gmail.com"
@@ -16,15 +16,14 @@
   "engines": {
     "node": ">= 0.8.0"
   },
+  "scripts": {
+    "test": "nodeunit test/test.js"
+  },
   "main": "main.js",
   "dependencies": {
-    "cheerio": "~0.12.3"
+    "cheerio": "^0.19.0"
   },
   "devDependencies": {
-    "grunt-contrib-clean": "~0.4.0",
-    "grunt-contrib-nodeunit": "~0.2.0",
-    "grunt": "~0.4.1",
-    "grunt-contrib-coffee": "~0.7.0",
-    "grunt-contrib-watch": "~0.5.3"
+    "nodeunit": "^0.9.1"
   }
 }

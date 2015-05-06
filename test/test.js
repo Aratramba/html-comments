@@ -1,6 +1,6 @@
 'use strict';
+/* globals exports, require */
 
-var grunt = require('grunt');
 var htmlcomments, file, keyword, comments;
 
 exports.htmlcomments = {
@@ -40,10 +40,8 @@ exports.htmlcomments = {
 
   customkeyword: function(test) {
     test.expect(1);
-
-    var html = grunt.file.read(file);
     
-    var comments = htmlcomments.load(html);
+    var comments = htmlcomments.loadFile(file);
     var filtered = htmlcomments.filter(comments, 'nope');
     test.equal(filtered.length, 1, 'should return all html comments, with keyword nope');
 
@@ -52,10 +50,8 @@ exports.htmlcomments = {
 
   removekeyword: function(test) {
     test.expect(1);
-
-    var html = grunt.file.read(file);
     
-    var comments = htmlcomments.load(html);
+    var comments = htmlcomments.loadFile(file);
     var filtered = htmlcomments.filter(comments, 'yep', true);
     test.equal(filtered[0], '\n        ima be collected', 'should return filtered html comments, remove the keyword');
 
