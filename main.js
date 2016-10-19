@@ -42,6 +42,13 @@ function load(src, options) {
   // load DOM
   var $ = cheerio.load(src);
 
+  // wrap inside a root element if none or multiple root nodes found
+  // https://github.com/Aratramba/html-comments/issues/1
+  if (!$('html').is(':root') && $(':root').length !== 1) {
+    src = '<div>' + src + '</div>';
+    $ = cheerio.load(src);
+  }
+
   // find all elements, return only comments
   $('*').contents().map(function(n, el) {
     if (el.type === 'comment') {
