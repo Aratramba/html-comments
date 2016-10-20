@@ -62,12 +62,12 @@ exports.htmlcomments = {
 };
 
 
-exports.snippet = {
-  snippet: function(test) {
+exports.external_comment = {
+  external_comment: function(test) {
     test.expect(1);
     
     htmlcomments = require('../main');
-    file = 'test/fixtures/snippet.html';
+    file = 'test/fixtures/external-comment.html';
     var comments = htmlcomments.loadFile(file);
     test.deepEqual(comments, ['comment1', 'comment2', 'comment3'], 'should return all html comments.');
     test.done();
@@ -82,14 +82,4 @@ exports.snippet = {
     test.deepEqual(comments, ['comment'], 'should return all html comments.');
     test.done();
   },
-
-  non_html_root: function(test) {
-    test.expect(1);
-    
-    htmlcomments = require('../main');
-    file = 'test/fixtures/non-html-root.html';
-    var comments = htmlcomments.loadFile(file);
-    test.deepEqual(comments, ['comment1', 'comment2', 'comment3'], 'should return all html comments.');
-    test.done();
-  }
 };

@@ -1,5 +1,5 @@
 htmlcomments = require('../main');
-file = 'test/fixtures/snippet.html';
+file = 'test/fixtures/external-comment.html';
 console.log(htmlcomments.loadFile(file));
 
 console.log('\n\n---\n\n');
