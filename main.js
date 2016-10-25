@@ -44,7 +44,7 @@ function load(src, options) {
 
   // wrap inside a root element if none or multiple root nodes found
   // https://github.com/Aratramba/html-comments/issues/1
-  if (!$('html').is(':root') && $(':root').length !== 1) {
+  if (!$('html').is(':root')) {
     src = '<div>' + src + '</div>';
     $ = cheerio.load(src);
   }

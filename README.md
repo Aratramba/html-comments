@@ -11,6 +11,7 @@ var options = {
 };
 
 var comments = htmlcomments.loadFile('file.html', options);
+var comments = htmlcomments.load('div></div>', options);
 ```
 
 ```html

@@ -63,11 +63,11 @@ exports.htmlcomments = {
 
 
 exports.snippet = {
-  snippet: function(test) {
+  multiple_root_nodes: function(test) {
     test.expect(1);
     
     htmlcomments = require('../main');
-    file = 'test/fixtures/snippet.html';
+    file = 'test/fixtures/multiple-root-nodes.html';
     var comments = htmlcomments.loadFile(file);
     test.deepEqual(comments, ['comment1', 'comment2', 'comment3'], 'should return all html comments.');
     test.done();
