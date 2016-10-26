@@ -91,5 +91,25 @@ exports.snippet = {
     var comments = htmlcomments.loadFile(file);
     test.deepEqual(comments, ['comment1', 'comment2', 'comment3'], 'should return all html comments.');
     test.done();
+  },
+
+  html_with_comment: function(test) {
+    test.expect(1);
+    
+    htmlcomments = require('../main');
+    file = 'test/fixtures/html-with-comment.html';
+    var comments = htmlcomments.loadFile(file);
+    test.deepEqual(comments, ['comment'], 'should return all html comments.');
+    test.done();
+  },
+
+  html_with_multiple_roots: function(test) {
+    test.expect(1);
+    
+    htmlcomments = require('../main');
+    file = 'test/fixtures/html-with-multiple-roots.html';
+    var comments = htmlcomments.loadFile(file);
+    test.deepEqual(comments, ['comment'], 'should return all html comments.');
+    test.done();
   }
 };
