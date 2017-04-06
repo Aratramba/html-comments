@@ -10,9 +10,11 @@ var options = {
   removeKeyword: true // returns just the comment body without the keyword
 };
 
-var comments = htmlcomments.loadFile('file.html', options);
-var comments = htmlcomments.loadURL('http://www.example.com/index.html', options, function(err, comments) {});
 var comments = htmlcomments.load('div></div>', options);
+
+var comments = htmlcomments.loadFile('file.html', options);
+
+htmlcomments.loadURL('http://www.example.com/index.html', options, function(err, comments) {});
 ```
 
 ```html
