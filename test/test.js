@@ -113,3 +113,15 @@ exports.snippet = {
     test.done();
   }
 };
+
+exports.url = {
+  loadURL: function(test) {
+    test.expect(1);
+    htmlcomments = require('../main');
+
+    htmlcomments.loadURL('http://rawgit.com/Aratramba/html-comments/master/test/fixtures/index.html', { keyword: 'yep' }, function(err, comments) {
+      test.equal(comments.length, 1, 'should return all html comments.');
+      test.done();
+    });
+  }
+};

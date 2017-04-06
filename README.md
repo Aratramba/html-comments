@@ -11,6 +11,7 @@ var options = {
 };
 
 var comments = htmlcomments.loadFile('file.html', options);
+var comments = htmlcomments.loadURL('http://www.example.com/index.html', options, function(err, comments) {});
 var comments = htmlcomments.load('div></div>', options);
 ```
 
@@ -34,6 +35,10 @@ var comments = htmlcomments.load('div></div>', options);
 `loadFile(path, options)`
 
 Load an html file at the given path. Returns all comments from that html file.
+
+`loadURL(url, options, cb)`
+
+Load an html page at the given url. Returns all comments from that html page.
 
 `load(src, options)`
 

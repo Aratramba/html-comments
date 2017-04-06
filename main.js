@@ -5,6 +5,7 @@
 var filter, load, loadFile;
 
 var cheerio = require('cheerio');
+var http = require('http');
 var fs = require('fs');
 
 
@@ -22,6 +23,29 @@ function loadFile(path, options) {
     console.log(e);
     return false;
   }
+}
+
+
+/**
+ * load url
+ */
+
+function loadURL(url, options, cb) {
+  var request = http.request(url, function (res) {
+    var data = '';
+    res.on('data', function (chunk) {
+      data += chunk;
+    });
+    res.on('end', function () {
+      cb(null, load(data, options));
+    });
+  });
+
+  request.on('error', function (e) {
+    cb(e.message);
+  });
+
+  request.end();
 }
 
 
@@ -72,5 +96,6 @@ function load(src, options) {
 
 module.exports = {
   loadFile: loadFile,
+  loadURL: loadURL,
   load: load
 };
